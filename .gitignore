@@ -1,0 +1,6 @@
+# Generated release artifacts
+Release/
+Update contents/
+
+# PowerShell logs/transcripts
+*.log
