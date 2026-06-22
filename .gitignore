@@ -1,0 +1,8 @@
+# Ignore everything in this repo by default.
+*
+
+# Keep only the release metadata file tracked.
+!stable.json
+
+# Keep this file visible for commits/changes.
+!.gitignore
