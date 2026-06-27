@@ -1,8 +1,8 @@
 ﻿[
     {
         "product":  "VisoDyneBatteryMonitor",
-        "version":  "1.0",
-        "download_url":  "https://github.com/VisoDyne/VisoDyneBatteryMonitor/releases/download/Release/VisoDyneBatteryMonitor-1.0-win64.zip",
-        "checksum":  "sha256:ef840af47335b83c0f05c5fcf9e7a91048424c3ed009ea1e3bb6e3b57da41050"
+        "version":  "1.1",
+        "download_url":  "https://github.com/VisoDyne/VisoDyneBatteryMonitor/releases/download/Release/VisoDyneBatteryMonitor-1.1-win64.zip",
+        "checksum":  "sha256:7dab615db5b4fc19b86fef5839af7ca78c8a327628321f6696728874194d8e0a"
     }
 ]
