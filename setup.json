@@ -1,0 +1,8 @@
+[
+    {
+        "product":  "VisoDyneBatteryMonitor",
+        "version":  "1.13",
+        "download_url":  "https://github.com/VisoDyne/VisoDyneBatteryMonitor/releases/download/Release/VisoDyneBatteryMonitor-1.13-win64-setup.exe",
+        "checksum":  "sha256:02587afb412606f7f97b7ed9fdcb48a7ff427c75b9c7a686a7ca6e3bb1af530b"
+    }
+]
