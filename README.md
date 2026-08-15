@@ -30,7 +30,7 @@ Compatibility depends on device firmware and how it reports battery information 
 - DualShock, Xbox Wireless, and compatible game controllers
 - Wireless speakers
 
-Use the free trial to confirm detection for a specific device.
+Use the free Community version to confirm detection for a specific device.
 
 ## Install
 
@@ -57,6 +57,14 @@ Use the free trial to confirm detection for a specific device.
 ## Updates
 
 The app checks its stable update manifest in background. When a newer release is available, it downloads package, verifies its SHA-256 checksum, stages it on installation volume, then applies it once app is tray-only. Interrupted updates retain rollback data.
+
+## Community Version (Free)
+
+The Community version is free and never expires. No account, no time limit.
+
+It detects and shows every supported device in the app window, with one device in the system tray. Pro adds a tray icon for each device, plus custom icon styles, custom battery colors, custom notification rules, and faster refresh intervals.
+
+You can switch the Community tray icon to another device at any time.
 
 ## Product Page
 
