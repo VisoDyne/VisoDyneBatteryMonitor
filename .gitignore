@@ -4,6 +4,8 @@
 # Keep only the release metadata file tracked.
 !stable.json
 !setup.json
+!v1
+!v2
 
 # Keep this file visible for commits/changes.
 !.gitignore
