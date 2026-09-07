@@ -1,0 +1,93 @@
+name: Publish downloads to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/pages.yml
+      - pages/**
+      - assets/screenshots/application-light.png
+      - v1/stable.json
+      - v2/stable.json
+  release:
+    types: [published, edited]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+
+      - name: Build site and fetch release files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          stub_name='VisoDyneBatteryMonitorSetup-1.1-win64.exe'
+          installer_url="$(jq -er '.[0].installer_url' v2/stable.json)"
+          installer_hash="$(jq -er '.[0].installer_checksum' v2/stable.json)"
+          archive_url="$(jq -er '.[0].download_url' v1/stable.json)"
+          archive_hash="$(jq -er '.[0].checksum' v1/stable.json)"
+          store_url="$(jq -er '.store_installer_url' pages/windows.json)"
+          store_hash="$(jq -er '.store_installer_checksum' pages/windows.json)"
+          installer_name="${installer_url##*/}"
+          archive_name="${archive_url##*/}"
+          store_name="${store_url##*/}"
+
+          mkdir -p _site/assets _site/downloads/windows
+          cp pages/index.html pages/styles.css _site/
+          cp assets/screenshots/application-light.png _site/assets/
+          touch _site/.nojekyll
+
+          gh release download Setup \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern "$stub_name" \
+            --dir _site/downloads
+          gh release download Release \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern "$installer_name" \
+            --pattern "$archive_name" \
+            --pattern "$store_name" \
+            --dir _site/downloads/windows
+
+          check_hash() {
+            local file="$1"
+            local expected="${2#sha256:}"
+            local actual
+            actual="$(sha256sum "$file" | cut -d ' ' -f 1)"
+            if [[ "$actual" != "$expected" ]]; then
+              echo "SHA-256 mismatch for $file" >&2
+              exit 1
+            fi
+          }
+
+          stub_hash="$(tr -d '[:space:]' < pages/stub.sha256)"
+          check_hash "_site/downloads/$stub_name" "$stub_hash"
+          check_hash "_site/downloads/windows/$installer_name" "$installer_hash"
+          check_hash "_site/downloads/windows/$archive_name" "$archive_hash"
+          check_hash "_site/downloads/windows/$store_name" "$store_hash"
+          printf '%s  %s\n' "$stub_hash" "$stub_name" > "_site/downloads/$stub_name.sha256"
+
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

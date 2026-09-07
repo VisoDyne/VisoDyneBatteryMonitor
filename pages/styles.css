@@ -1,0 +1,223 @@
+:root {
+  color-scheme: light;
+  --ink: #20251f;
+  --muted: #596058;
+  --paper: #f6f8f3;
+  --surface: #ffffff;
+  --line: #d5dcd2;
+  --green: #26743b;
+  --green-dark: #18542a;
+  --yellow: #f3c94b;
+  --coral: #c54c38;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: linear-gradient(rgba(38, 116, 59, 0.04) 1px, transparent 1px);
+  background-size: 100% 32px;
+  font-family: Verdana, Geneva, sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--green-dark);
+}
+
+.site-header,
+main,
+footer {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  min-height: 76px;
+  padding-block: 24px 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.brand {
+  color: var(--ink);
+  font-family: Bahnschrift, "Franklin Gothic Medium", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.download {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
+  align-items: center;
+  gap: clamp(48px, 8vw, 110px);
+  min-height: 610px;
+  padding-block: 64px;
+}
+
+.download-copy {
+  max-width: 590px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--coral);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 700px;
+  margin: 0;
+  font-family: Bahnschrift, "Franklin Gothic Medium", sans-serif;
+  font-size: 68px;
+  font-stretch: condensed;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.summary {
+  max-width: 580px;
+  margin: 28px 0 32px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.download-button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  border: 2px solid var(--green-dark);
+  border-radius: 5px;
+  color: #ffffff;
+  background: var(--green);
+  box-shadow: 5px 5px 0 var(--yellow);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.download-button:hover,
+.download-button:focus-visible {
+  background: var(--green-dark);
+}
+
+.download-button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.file-details {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.file-details a {
+  margin-left: 12px;
+}
+
+.product-preview {
+  position: relative;
+  margin: 0;
+}
+
+.product-preview::before {
+  position: absolute;
+  inset: 8% -7% -4% 10%;
+  z-index: -1;
+  border: 2px solid var(--coral);
+  content: "";
+}
+
+.product-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #b9bdb8;
+  box-shadow: 0 22px 55px rgba(32, 37, 31, 0.16);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-block: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.features p {
+  margin: 0;
+  padding: 30px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.features p + p {
+  border-left: 1px solid var(--line);
+}
+
+.features strong {
+  color: var(--ink);
+  font-family: Bahnschrift, "Franklin Gothic Medium", sans-serif;
+  font-size: 16px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 28px 40px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .site-header,
+  main,
+  footer {
+    width: min(100% - 28px, 560px);
+  }
+
+  .download {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    min-height: 0;
+    padding-block: 48px 64px;
+  }
+
+  h1 {
+    font-size: 43px;
+  }
+
+  .product-preview {
+    width: min(88%, 390px);
+    margin-inline: auto;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .features p + p {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  footer {
+    gap: 20px;
+  }
+}
