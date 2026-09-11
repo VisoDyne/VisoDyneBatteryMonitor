@@ -7,5 +7,12 @@
 !v1
 !v2
 
+# Keep the GitHub Pages source and deployment workflow tracked.
+!.github/
+!.github/workflows/
+!.github/workflows/pages.yml
+!pages/
+!pages/**
+
 # Keep this file visible for commits/changes.
 !.gitignore
