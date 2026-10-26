@@ -2,7 +2,7 @@
     {
         "product":  "VisoDyneBatteryMonitor",
         "version":  "Auto-update broken. Re-download from VisoDyne.com.",
-        "download_url":  "https://github.com/VisoDyne/VisoDyneBatteryMonitor/releases/download/Release/VisoDyneBatteryMonitor-1.23-win64.zip",
-        "checksum":  "sha256:fcccf686a4bdfac4b7bf5f1cafe306cc552105efea8ab8a25ed5015372e86613"
+        "download_url":  "https://github.com/VisoDyne/VisoDyneBatteryMonitor/releases/download/Release/VisoDyneBatteryMonitor-1.24-win64.zip",
+        "checksum":  "sha256:2e3ecf2a30a4428d8d73015f02335b2ed890c34ffd95a6323b0caa14795d5e8d"
     }
 ]
