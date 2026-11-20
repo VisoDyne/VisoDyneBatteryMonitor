@@ -1,5 +1,5 @@
 ﻿{
-    "version":  "1.25",
-    "store_installer_url":  "https://github.com/VisoDyne/VisoDyneBatteryMonitor/releases/download/Release/VisoDyneBatteryMonitor-1.25-win64-store-setup.exe",
-    "store_installer_checksum":  "sha256:b653df505530676222fce283b68ab99a3657b9b49c235f743e28367c7ffb184d"
+    "version":  "1.26",
+    "store_installer_url":  "https://github.com/VisoDyne/VisoDyneBatteryMonitor/releases/download/Release/VisoDyneBatteryMonitor-1.26-windows_amd64-store-setup.exe",
+    "store_installer_checksum":  "sha256:3212a58565d6094c9921fe57ff2100b5b18bebc6bfe99c2cf684449f7a7d5865"
 }

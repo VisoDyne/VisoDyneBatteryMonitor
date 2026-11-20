@@ -9,6 +9,7 @@ on:
       - assets/screenshots/application-light.png
       - v1/stable.json
       - v2/stable.json
+      - v3/**
   release:
     types: [published, edited]
   workflow_dispatch:
