@@ -1,0 +1,8 @@
+﻿[
+    {
+        "product":  "VisoDyneBatteryMonitor",
+        "version":  "1.27",
+        "installer_url":  "https://github.com/VisoDyne/VisoDyneBatteryMonitor/releases/download/Release/VisoDyneBatteryMonitor-1.27-linux_amd64.zip",
+        "installer_checksum":  "sha256:4f6935247238989c6cb2a024692ac058a927814c32cba6b7966b0a8afa60bbe3"
+    }
+]
